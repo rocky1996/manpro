@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cal.mapper.UserMapper"> 
+	<insert id="register" parameterType="user">
+		insert into user(uid,account,email,nick,password) values(#{uid},#{account},#{email},#{nick},#{password})
+	</insert>
+	<select id="login" parameterType="java.util.Map" resultType="user">
+		select uid,account,email,nick,password from user where account=#{0} and password=#{1}
+	</select>
+	<select id="findaccount" parameterType="java.util.Map" resultType="user">
+		select uid,account,email,nick,password from user where account=#{account}
+	</select>
+</mapper> 
